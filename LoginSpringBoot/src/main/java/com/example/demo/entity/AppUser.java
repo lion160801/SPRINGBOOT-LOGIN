@@ -32,6 +32,7 @@ public class AppUser implements UserDetails {
   private String firstName;
   private String lastName;
   private String email;
+  private String username;
   private String password;
   @Enumerated(EnumType.STRING)
   private AppUserRole appUserRole;
@@ -64,7 +65,7 @@ public class AppUser implements UserDetails {
 
   @Override
   public String getUsername() {
-    return email;
+    return username;
   }
 
   public String getFirstName() {

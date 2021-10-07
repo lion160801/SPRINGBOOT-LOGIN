@@ -8,6 +8,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Sign Up Form by Colorlib</title>
 
+
   <!-- Font Icon -->
   <link rel="stylesheet" th:href="@{fonts/material-icon/css/material-design-iconic-font.min.css}">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
@@ -36,6 +37,10 @@
             <div class="form-group">
               <label for="email"><i class="zmdi zmdi-email"></i></label>
               <input type="email" th:field="*{email}" id="email" placeholder="Your Email"/>
+            </div>
+            <div class="form-group">
+              <label for="username"><i class="zmdi zmdi-email"></i></label>
+              <input type="text" th:field="*{username}" id="username" placeholder="Username"/>
             </div>
             <div class="form-group">
               <label for="pass"><i class="zmdi zmdi-lock"></i></label>
