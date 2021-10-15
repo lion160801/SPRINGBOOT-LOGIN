@@ -1,19 +1,17 @@
 package com.example.demo.controller;
 
-import lombok.AllArgsConstructor;
+
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping(path = "login")
-@AllArgsConstructor
-public class LoginController {
+@RequestMapping("/admin")
+public class ManagementController {
 
   @GetMapping
-  public String login(Model model) {
-    return "login";
+  public String admin(){
+    return "admin";
   }
-
 }
