@@ -1,7 +1,9 @@
 package com.example.demo.security.config;
 
 
-import com.example.demo.entity.AppUserRole;
+import static com.example.demo.entity.AppUserRole.ADMIN;
+import static com.example.demo.entity.AppUserRole.USER;
+
 import com.example.demo.service.AppUserService;
 import javax.sql.DataSource;
 import lombok.AllArgsConstructor;
@@ -17,7 +19,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.JdbcTokenRepositoryImpl;
 import org.springframework.security.web.authentication.rememberme.PersistentTokenRepository;
 
-import com.example.demo.entity.AppUserRole;
 
 @Configuration
 @AllArgsConstructor
@@ -37,8 +38,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .authorizeRequests()
         .antMatchers("/css/**","/fonts/**","/images/**","/js/**","/scss/**","/vendor.jquery/**").permitAll()
         .antMatchers("/registration/**").permitAll()
-        .antMatchers("/home").hasAuthority(AppUserRole.USER.name())
-        .antMatchers("/admin").hasAuthority(AppUserRole.ADMIN.name())
+        .antMatchers("/home").hasRole(USER.name())
+        .antMatchers("/admin").hasRole(ADMIN.name())
         .anyRequest()
         .authenticated()
         .and()

@@ -11,7 +11,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ManagementController {
 
   @GetMapping
+  @PreAuthorize("hasAnyRole('ADMIN','SUPPORTER')")
   public String admin(){
     return "admin";
   }
+
+  @GetMapping(path = "read")
+  @PreAuthorize("hasAuthority('admin:read')")
+  public String read(){
+    return "adminread";
+  }
+
+  @GetMapping(path = "write")
+  @PreAuthorize("hasAuthority('admin:write')")
+  public String write(){
+    return "adminwrite";
+  }
+
+
 }

@@ -27,7 +27,7 @@ public class RegistrationController {
 
   @PostMapping
   public String register(AppUser appUser) {
-    appUser.setAppUserRole(AppUserRole.USER);
+
     registrationService.register(appUser);
     return "confirmmailrequest";
   }
